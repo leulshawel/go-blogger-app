@@ -1,4 +1,4 @@
-module github.com/leulshawell/go-blogger-app
+module github.com/leulshawel/go-blogger-app
 
 go 1.18
 
