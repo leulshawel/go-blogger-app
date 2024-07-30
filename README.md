@@ -2,7 +2,7 @@
 
 this is a blogging app backend ( In Progress )
 
-Tech stach:
-    - language: <b>Go</b>
-    - Framework: <b>Fiber</b>
-    - Database: <b>MongoDB</b>
+Tech stach:<br>
+    - language: <b>Go</b><br>
+    - Framework: <b>Fiber</b><br>
+    - Database: <b>MongoDB</b><br>
