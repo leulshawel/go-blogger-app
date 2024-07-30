@@ -3,14 +3,14 @@ package routes
 import (
 	"github.com/gofiber/fiber/v2"
 	// validator "github.com/asaskevich/govalidator"
-	"go.mongodb.org/mongo-driver/bson/primitive"
-	"go.mongodb.org/mongo-driver/mongo"
+	// "go.mongodb.org/mongo-driver/bson/primitive"
+	// "go.mongodb.org/mongo-driver/mongo"
 	"fmt"
 	"errors"
 )
 
 
-func CreateApp(client *mongo.Client) (*fiber.App, error) {
+func CreateApp() (*fiber.App, error) {
 	fmt.Println("App started")
 	
 	app := fiber.New()
