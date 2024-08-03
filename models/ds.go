@@ -22,7 +22,7 @@ type Data struct{
 
 //create new data
 func newData (text string, image []byte, video []byte) *Data { 
-	return &Data{text: text, image: image, video: video} 
+	return &Data{text: text, image: image, video: video} out
 }
 
 //a post 
