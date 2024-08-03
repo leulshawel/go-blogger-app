@@ -1,11 +1,12 @@
 package routes
 
 import (
-	"github.com/gofiber/fiber/v2"
-	// validator "github.com/asaskevich/govalidator"
 	"fmt"
+	"github.com/gofiber/fiber/v2"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
+
+	"github.com/leulshawel/go-blogger-app/model"
 )
 
 func New(client *mongo.Client) (*fiber.App, error) {
@@ -16,13 +17,7 @@ func New(client *mongo.Client) (*fiber.App, error) {
 	})
 
 	app.Post("/api/post", func(ctx *fiber.Ctx) error {
-		params := struct {
-			Id string `params:"id"`
-		}{}
-		ctx.ParamsParser(&params)
 
-		ctx.JSON(&params)
-		return nil
 	})
 
 	app.Get("/api/post/:id", func(ctx *fiber.Ctx) error {
@@ -39,7 +34,7 @@ func New(client *mongo.Client) (*fiber.App, error) {
 			ctx.JSON(struct {
 				status string
 				code   uint8
-			}{})
+			}{status: "", code: 1})
 			return err
 		}
 
