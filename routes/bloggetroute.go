@@ -5,8 +5,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
-
-	"github.com/leulshawel/go-blogger-app/model"
+	// "github.com/leulshawel/go-blogger-app/model"
 )
 
 func New(client *mongo.Client) (*fiber.App, error) {
@@ -17,7 +16,7 @@ func New(client *mongo.Client) (*fiber.App, error) {
 	})
 
 	app.Post("/api/post", func(ctx *fiber.Ctx) error {
-
+		return nil
 	})
 
 	app.Get("/api/post/:id", func(ctx *fiber.Ctx) error {
