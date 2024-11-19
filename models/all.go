@@ -2,22 +2,22 @@ package models
 
 // user object
 type User struct {
-	Name      string `json:"name"`
-	Sub_field string `json:"subfield"`
-	Age       uint8  `json:"age"`
-	Field     string `json:"field"`
+	Name      string `json:"name" bson:"name" validator:"required"`
+	Sub_field string `json:"subfield" bson:"name" validator:"required"`
+	Age       uint8  `json:"age" bson:"name" validator:"required"`
+	Field     string `json:"field" bson:"name" validator:"required"`
 }
 
 // the content of a blog post
 type Data struct {
-	Text  string `json:"text"`
-	Image []byte `json:"image"`
-	Video []byte `json:"video"`
+	Text  string `json:"text" bson:"text"`
+	Image []byte `json:"image" bson:"image"`
+	Video []byte `json:"video" bson:"video"`
 }
 
 // a post
 type Post struct {
-	Content_type string `json:"contenttype`
-	User         *User  `json:"user`
-	Data         *Data  `json:"data"`
+	Content_type string `json:"contenttype" bson:"name" validator:"required"`
+	User         *User  `json:"user" bson:"name" validator:"required"`
+	Data         *Data  `json:"data" bson:"name" validator:"required"`
 }
