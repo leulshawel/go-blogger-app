@@ -2,31 +2,35 @@ package routes
 
 import (
 	"fmt"
+
 	"github.com/gofiber/fiber/v2"
+	"github.com/leulshawel/go-blogger-app/models"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
-	// "github.com/leulshawel/go-blogger-app/model"
 )
 
 func New(client *mongo.Client) (*fiber.App, error) {
 	app := fiber.New()
 
 	app.Get("/api", func(ctx *fiber.Ctx) error {
-		return ctx.SendString("Blog server is up and running	")
+		ctx.SendString("Blog server is up and running with air")
+		return nil
 	})
 
 	app.Post("/api/post", func(ctx *fiber.Ctx) error {
+		var post = new(models.Post)
+		ctx.BodyParser(post)
+		fmt.Println(post)
+		//actions.Actions_.OnDelete(post)
 		return nil
 	})
 
 	app.Get("/api/post/:id", func(ctx *fiber.Ctx) error {
+		fmt.Println("Get request comming to /api/post/:id")
 		//parse parameters
-		params := struct {
-			Id string `params:"id"`
-		}{}
-		ctx.ParamsParser(&params)
-
-		objId, err := primitive.ObjectIDFromHex(params.Id)
+		id := ctx.Params("id")
+		ctx.SendString(id)
+		objId, err := primitive.ObjectIDFromHex(id)
 
 		if err != nil {
 			ctx.Status(233)
@@ -38,7 +42,10 @@ func New(client *mongo.Client) (*fiber.App, error) {
 		}
 
 		fmt.Println(objId)
+		return nil
+	})
 
+	app.Delete("/api/post/:id", func(cts *fiber.Ctx) error {
 		return nil
 	})
 
